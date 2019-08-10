@@ -12,7 +12,8 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #00aaec;
+                /* background-color: #00aaec; */
+                background-color: black;
                 color: #0f87c4;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -62,7 +63,7 @@
                 margin-bottom: 30px;
                 color: white;
             }
-            
+
             h2 {
                 color: white;
             }
