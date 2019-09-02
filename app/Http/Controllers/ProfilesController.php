@@ -21,7 +21,7 @@ class ProfilesController extends Controller
     public function index(User $user)
     {
 
-        $profiles = \App\Profile::orderby('created_at', 'desc')->paginate(10);
+        $profiles = \App\Profile::orderby('created_at', 'desc')->paginate(20);
 
         $following = auth()->user()->following()->pluck('profile_user.profile_id')->toArray();
 

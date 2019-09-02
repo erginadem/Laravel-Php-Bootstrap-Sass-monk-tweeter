@@ -29,6 +29,8 @@ class TweetController extends Controller
         return $tweets;
     }
 
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -73,8 +75,9 @@ class TweetController extends Controller
     {
         // Load single tweet from DB by it's ID
         $tweet = \App\Tweet::find($id);
+        $following = $tweet->user->following->pluck('id')->toArray();
 
-        return view('tweets/show', compact('tweet'));
+        return view('tweets/show', compact('tweet', 'following'));
     }
 
     /**

@@ -1,3 +1,3 @@
-<div class="card-text bg-info text-center fixed-bottom">
-    <p class="mt-2 text-light"> © 2019 Tweeter All Rights Reserved </p>
+<div class="bg-primary text-center fixed-bottom pt-1">
+    <h6 class="text-light"> © 2019 Tweeter All Rights Reserved </h6>
 </div>

@@ -1,24 +1,18 @@
 @extends('layouts.app')
 
-
 @section('content')
-
-    <div class="container">
+    <div class="container mt-5">
         <h1 class='text text-primary'>Who to follow</h1>
         <hr />
-
-        @foreach($profiles as $profile)
-            @if(auth()->check() && auth()->user()->id !== $profile->user->id)
-                @include('profiles._profile')
-            @endif
-
-        @endforeach
-
-        <div class="mb-5">
-            <a href="tweets"><button class="ml-3 btn btn-dark btn-sm" type="button" name="button">Home</button></a>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                @foreach($profiles as $profile)
+                    @if(auth()->check() && auth()->user()->id !== $profile->user->id)
+                        @include('profiles._profile')
+                    @endif
+                @endforeach
+            </div>
         </div>
     </div>
-
     @include('layouts/footer')
-
 @endsection

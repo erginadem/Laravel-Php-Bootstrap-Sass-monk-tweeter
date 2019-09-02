@@ -18,22 +18,23 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="fixed-top navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
 
                 <a class="navbar-brand" href="{{ url('/tweets') }}">
-                    <img src="{{ asset('img/small-logo.png') }}" class="img-fluid" alt="small-logo" />
+                    <i class="fa fa-home text-primary"></i> Home
                 </a>
 
                 <a class="navbar-brand" href="{{ url('/tweets/create') }}">
-                    <img src="{{ asset('img/new-tweet.png') }}" class="img-fluid" alt="new-tweet" />
+                    <i class="fa fa-twitter text-primary"></i> New
                 </a>
 
                 <a class="navbar-brand" href="{{ url('/profiles') }}">
-                    <img src="{{ asset('img/follow.png') }}" class="img-fluid" alt="follow" />
+                    <i class="fa fa-users text-primary"></i> Users
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

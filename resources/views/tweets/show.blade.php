@@ -8,9 +8,9 @@
     </form>
 
     @foreach($tweet->comments as $comment)
-        @include('comments._comment') <br />
+        @include('comments._comment')
     @endforeach
-    
+
     @include('layouts/footer')
 
 @endsection

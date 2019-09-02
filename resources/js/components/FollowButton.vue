@@ -5,39 +5,39 @@
 </template>
 
 <script>
-    export default {
-        props: ['userId', 'follows'],
+export default {
+    props: ['userId', 'follows'],
 
-        mounted() {
-            console.log('Component mounted.')
-            console.log(this);
-        },
+    mounted() {
+        console.log('Component mounted.')
+        console.log(this);
+    },
 
-        data: function () {
-            return {
-                status: this.follows,
-            }
-        },
+    data: function () {
+        return {
+            status: this.follows,
+        }
+    },
 
-        methods: {
-            followUser() {
-                axios.post('/follow/' + this.userId)
-                    .then(response => {
-                        this.status = ! this.status;
-                        console.log(response.data);
-                    })
-                        .catch(errors => {
-                            if (errors.response.status == 401){
-                                window.location = '/login';
-                            }
-                        });
-            }
-        },
+    methods: {
+        followUser() {
+            axios.post('/follow/' + this.userId)
+            .then(response => {
+                this.status = ! this.status;
+                console.log(response.data);
+            })
+            .catch(errors => {
+                if (errors.response.status == 401){
+                    window.location = '/login';
+                }
+            });
+        }
+    },
 
-        computed: {
-            buttonText() {
-                return (this.status) ? 'Unfollow' : 'Follow';
-            }
+    computed: {
+        buttonText() {
+            return (this.status) ? 'Unfollow' : 'Follow';
         }
     }
+}
 </script>
