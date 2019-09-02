@@ -17,7 +17,7 @@
                     <img
                         :src="result.images.fixed_height.url"
                         @click="choosenGIF(index)" v-for="(result , index) in results"
-                        class="mb-1 mr-1"
+                        class="mb-1 mr-2"
                      />
             </div>
         </div>
