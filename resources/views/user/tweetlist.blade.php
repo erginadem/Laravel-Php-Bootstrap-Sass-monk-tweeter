@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
     <div class="container mt-5">
         <h1 class="text-primary">My Tweets</h1>

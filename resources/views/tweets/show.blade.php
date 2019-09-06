@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     @include('tweets/_tweet')
 
     <form action="/tweets/ {{ $tweet->id }}" method="POST">
@@ -12,5 +11,4 @@
     @endforeach
 
     @include('layouts/footer')
-
 @endsection

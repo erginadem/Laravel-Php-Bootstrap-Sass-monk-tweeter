@@ -15,7 +15,7 @@
                         <hr />
                         <h5>You have successfully registered and logged in.</h5>
                         <hr />
-                        <a href="profiles" class="btn btn-primary"><i class="fa fa-arrow-right"></i></a>
+                        <a href="profiles" class="btn btn-primary"><i class="fa fa-arrow-right"> next </i></a>
                     </div>
                 </div>
             </div>

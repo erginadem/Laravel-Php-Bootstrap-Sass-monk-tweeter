@@ -26,7 +26,7 @@
                         @endif
 
                         @if(Auth::id() == $user->id)
-                            <a class="btn btn-primary btn-sm" href="/profiles/{{ $user->id }}/edit"> <i class="fa fa-edit"></i> edit</a>
+                            <a class="btn btn-primary btn-sm" href="/profiles/{{ $user->id }}/edit"> <i class="fa fa-edit"> edit </i> </a>
                         @endif
                     </div>
                 </div>

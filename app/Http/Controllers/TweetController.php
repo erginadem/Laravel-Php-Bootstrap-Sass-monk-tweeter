@@ -162,4 +162,9 @@ class TweetController extends Controller
 
         return view('user/tweetlist', compact('tweets'));
     }
+
+    public function marketing()
+    {
+        return view('marketing/index');
+    }
 }

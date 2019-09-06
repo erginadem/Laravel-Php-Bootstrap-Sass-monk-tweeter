@@ -6,7 +6,7 @@
             <h1 class='text text-primary'>Tweet List</h1>
             <hr />
         </div>
-        <div class="col">
+        <div class="col-">
             @foreach($tweets as $tweet)
                 @include('tweets._tweet')
             @endforeach

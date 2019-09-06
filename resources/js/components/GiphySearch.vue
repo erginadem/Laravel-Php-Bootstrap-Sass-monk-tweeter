@@ -9,8 +9,8 @@
                 <input v-model="query" type="text" placeholder="add gif"
                         class="form-control"
                 />
-                <button type="submit" class="btn btn-dark btn-sm mt-2 mb-2">
-                    <i class="fa fa-search"></i> search
+                <button type="submit" class="badge badge-dark mt-2 mb-2">
+                    <i class="fa fa-search"> search</i>
                 </button>
             </form>
             <div class="col">

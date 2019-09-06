@@ -13,14 +13,14 @@
                 </h4>
                 {{ $tweet->body }}
                 <div class="mb-2 mt-2">
-                    <a href="/comments/create/{{ $tweet->id }}" class="badge badge-warning"><i class="fa fa-comment"></i> ({{ $tweet->comments()->count() }})</a>
-                    <a href="/tweets/{{ $tweet->id }}/like" class="badge badge-success"><i class="fa fa-heart"></i> ({{ $tweet->likes()->count() }})</a>
+                    <a href="/comments/create/{{ $tweet->id }}" class="badge badge-warning"><i class="fa fa-comment"> comment </i> ({{ $tweet->comments()->count() }})</a>
+                    <a href="/tweets/{{ $tweet->id }}/like" class="badge badge-success"><i class="fa fa-heart"> like </i> ({{ $tweet->likes()->count() }})</a>
                     @if(Auth::id() == $tweet->user_id)
-                        <a class="badge badge-dark" href="/tweets/{{ $tweet->id }}/edit"><i class="fa fa-edit"></i> </a>
+                        <a class="badge badge-dark" href="/tweets/{{ $tweet->id }}/edit"><i class="fa fa-edit"> edit </i> </a>
                         <form class="d-inline" action="/tweets/ {{ $tweet->id }}" method="POST">
                             @csrf
                             {{ method_field('DELETE') }}
-                            <button type="submit" class="badge badge-danger" name="button"><i class="fa fa-trash"></i> </button>
+                            <button type="submit" class="badge badge-danger" name="button"><i class="fa fa-trash"> delete </i> </button>
                         </form>
                     @endif
                 </div>

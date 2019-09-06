@@ -22,7 +22,7 @@
                     <div class="form-group">
                         <textarea name="body" placeholder="write your comment here!" class="form-control"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-sm mb-2" href="/tweets/{{ $tweet->id }}"> <i class="fa fa-save"></i> save</button>
+                    <button type="submit" class="btn btn-primary btn-sm mb-2" href="/tweets/{{ $tweet->id }}"> <i class="fa fa-save"> save </i> </button>
                     <giphy-search :value="this.gif"></giphy-search>
                 </form>
             </div>

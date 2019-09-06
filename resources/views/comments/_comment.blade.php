@@ -14,11 +14,11 @@
             </div>
             <div class="mt-1 float-right">
                 @if(Auth::id() == $comment->user_id)
-                    <a href="/comments/{{ $comment->id }}/edit" class="badge badge-dark"><i class="fa fa-edit"></i></a>
+                    <a href="/comments/{{ $comment->id }}/edit" class="badge badge-dark">  <i class="fa fa-edit"> edit</i></a>
                     <form class="d-inline" action="/comments/{{ $comment->id }}" method="POST">
                         {{ method_field('DELETE') }}
                         @csrf
-                        <button type="submit" class="badge badge-danger"><i class="fa fa-trash"></i></button>
+                        <button type="submit" class="badge badge-danger"><i class="fa fa-trash"> delete </i> </button>
                     </form>
                 @endif
             </div>

@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <!-- Styles -->
         <style>
@@ -42,6 +43,7 @@
 
             .content {
                 text-align: center;
+                margin-top: 150px;
             }
 
             .title {
@@ -63,9 +65,21 @@
                 color: white;
             }
 
+            .marketing {
+                margin-top: 200px;
+            }
+
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+
             h2 {
                 color: white;
             }
+
+
         </style>
     </head>
     <body>
@@ -75,23 +89,28 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}"> <i class="fa fa-sign-in"></i> Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}"> <i class="fa fa-file"></i> Register</a>
                         @endif
                     @endauth
                 </div>
             @endif
 
-            <div class="content text-light">
+            <div class="content">
                 <div class="media">
                     <img src="{{ asset('img/logo.png') }}" class="img-fluid" alt="logo" />
                 </div>
                 <div class="title m-b-md">
                     Tweeter
                 </div>
+                <div class="">
                     <h2> Welcome</h2>
+                </div>
+                <div class="marketing">
+                    <a href="marketing" target="_blank" class="text text-light"> <i class="fa fa-twitter"></i> Marketing</a>
+                </div>
             </div>
         </div>
     </body>

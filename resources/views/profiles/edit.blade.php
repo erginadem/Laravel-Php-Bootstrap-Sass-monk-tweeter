@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
     <div class="container mt-5">
         <h1 class="text-primary">Edit Profile</h1>
@@ -16,12 +15,13 @@
                             @csrf
                             {{ method_field('PUT') }}
                             <h6 class="text-danger">Birthday | yyyy-dd-mm </h6>
-                            <input name="birthday" placeholder="{{ $profile->birthday }}" class="form-control" /><br />
+                            <input name="birthday" placeholder="{{ $profile->birthday }}" class="form-control" />
+                            <br />
                             <h6 class="text-danger">Location</h6>
                             <input name="location" type="text" class="form-control" placeholder="{{ $profile->location }}"/> <br />
                             <h6 class="text-danger">Bio</h6>
                             <textarea name="bio" class="form-control" placeholder="{{ $profile->bio }}"></textarea> <br />
-                            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"></i> save</button>
+                            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> save </i> </button>
                         </form>
                     </div>
                 </div>

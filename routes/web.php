@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::middleware('auth')->group(function(){
     Route::resource('/tweets', 'TweetController');
 });
@@ -47,3 +48,5 @@ Route::get('/user/followers', 'FollowsController@followers')->name('followers');
 Route::get('/user/tweetlist', 'TweetController@tweetlist')->name('tweetlist');
 
 Route::get('/latest', 'TweetController@list');
+
+Route::get('/marketing', 'TweetController@marketing')->name('marketing');

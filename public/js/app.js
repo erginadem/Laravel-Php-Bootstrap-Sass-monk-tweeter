@@ -37318,7 +37318,7 @@ var render = function() {
         { staticClass: "col" },
         _vm._l(_vm.results, function(result, index) {
           return _c("img", {
-            staticClass: "mb-1 mr-1",
+            staticClass: "mb-1 mr-2",
             attrs: { src: result.images.fixed_height.url },
             on: {
               click: function($event) {
@@ -37339,14 +37339,8 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "button",
-      {
-        staticClass: "btn btn-dark btn-sm mt-2 mb-2",
-        attrs: { type: "submit" }
-      },
-      [
-        _c("i", { staticClass: "fa fa-search" }),
-        _vm._v(" search\n            ")
-      ]
+      { staticClass: "badge badge-dark mt-2 mb-2", attrs: { type: "submit" } },
+      [_c("i", { staticClass: "fa fa-search" }, [_vm._v(" search")])]
     )
   }
 ]
