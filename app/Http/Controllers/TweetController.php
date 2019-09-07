@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Tweet;
+use App\Like;
 
 class TweetController extends Controller
 {
@@ -14,13 +16,15 @@ class TweetController extends Controller
      */
     public function index()
     {
-        $tweets = \App\Tweet::orderBy('created_at', 'desc')->paginate(20);
+        // $tweets = \App\Tweet::orderBy('created_at', 'desc')->get();
+
+        $tweets = \App\Tweet::orderBy('created_at', 'desc')->paginate(30);
 
         $following = auth()->user()->following()->pluck('profile_user.profile_id')->toArray();
 
         //dd($tweets[0]->user->follows);
 
-        return view('tweets/index', compact('tweets', 'following'));
+        return view('tweets.index', compact('tweets', 'following'));
     }
 
     public function list()
@@ -38,7 +42,7 @@ class TweetController extends Controller
      */
     public function create()
     {
-        return view('tweets/create');
+        return view('tweets.create');
     }
 
     /**
@@ -77,7 +81,7 @@ class TweetController extends Controller
         $tweet = \App\Tweet::find($id);
         $following = $tweet->user->following->pluck('id')->toArray();
 
-        return view('tweets/show', compact('tweet', 'following'));
+        return view('tweets.show', compact('tweet', 'following'));
     }
 
     /**
@@ -90,7 +94,7 @@ class TweetController extends Controller
     {
         $tweet = \App\Tweet::find($id);
 
-        return view('tweets/edit', compact('tweet'));
+        return view('tweets.edit', compact('tweet'));
     }
 
     /**
@@ -160,11 +164,18 @@ class TweetController extends Controller
 
         // dd($tweet);
 
-        return view('user/tweetlist', compact('tweets'));
+        return view('user.tweetlist', compact('tweets'));
+    }
+
+    public function tweetlist2($id)
+    {
+        $user = \App\User::find($id);
+        $tweets = $user->tweets()->get();
+        return view('user.tweetlist2', compact('tweets'));
     }
 
     public function marketing()
     {
-        return view('marketing/index');
+        return view('marketing.index');
     }
 }

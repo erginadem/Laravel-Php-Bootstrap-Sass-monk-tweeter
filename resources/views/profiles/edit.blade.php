@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container mt-5">
+        @if(Auth::id() == $profile->user->id)
         <h1 class="text-primary">Edit Profile</h1>
         <hr />
         <div class="row justify-content-center">
@@ -15,18 +16,25 @@
                             @csrf
                             {{ method_field('PUT') }}
                             <h6 class="text-danger">Birthday | yyyy-dd-mm </h6>
-                            <input name="birthday" placeholder="{{ $profile->birthday }}" class="form-control" />
+                            <textarea name="birthday" class="form-control text text-secondary">{{ $profile->birthday }}</textarea>
                             <br />
                             <h6 class="text-danger">Location</h6>
-                            <input name="location" type="text" class="form-control" placeholder="{{ $profile->location }}"/> <br />
+                            <textarea name="location" class="form-control text text-secondary">{{ $profile->location }}</textarea>
+                            <br />
                             <h6 class="text-danger">Bio</h6>
-                            <textarea name="bio" class="form-control" placeholder="{{ $profile->bio }}"></textarea> <br />
+                            <textarea name="bio" class="form-control text text-secondary">{{ $profile->bio }}</textarea>
+                            <br />
                             <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> save </i> </button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+        @else
+            <div class="col alert alert-danger">
+                There is something wrong!
+            </div>
+        @endif
     </div>
     @include('layouts/footer')
 @endsection

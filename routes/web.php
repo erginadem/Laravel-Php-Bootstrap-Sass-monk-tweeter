@@ -46,6 +46,8 @@ Route::get('/profiles/{user}', 'ProfilesController@index')->name('profile');
 Route::get('/user/following', 'FollowsController@following')->name('following');
 Route::get('/user/followers', 'FollowsController@followers')->name('followers');
 Route::get('/user/tweetlist', 'TweetController@tweetlist')->name('tweetlist');
+Route::get('/user/tweetlist2', 'TweetController@tweetlist2')->name('tweetlist2');
+
 
 Route::get('/latest', 'TweetController@list');
 

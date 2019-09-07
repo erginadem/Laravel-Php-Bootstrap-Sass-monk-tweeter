@@ -16,7 +16,7 @@
                         <p> <i class="fa fa-book"></i> {{ $user->profile->bio }} </p>
                         <hr />
                         <p>
-                            {{ $user->tweets->count() }} <strong class="text text-secondary">Tweets</strong>  |
+                            <a href="{{ route('tweetlist2') }}">{{ $user->tweets->count() }} <strong class="text text-secondary">Tweets</strong></a>  |
                             {{ $user->profile->followers->count() }} <strong class="text text-secondary">Followers</strong>  |
                             {{ $user->following->count() }}  <strong class="text text-secondary">Following</strong>
                         </p>

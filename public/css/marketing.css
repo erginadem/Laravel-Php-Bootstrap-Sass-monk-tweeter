@@ -1,55 +1,53 @@
-
 .jumbotron {
-    border-radius: 0px;
-    margin-bottom: 0px;
+  border-radius: 0px;
+  margin-bottom: 0px;
 }
 
 #secOne .jumbotron {
-    padding-top: 50px;
-    padding-bottom: 600px;
-    background-color: transparent;
-    background-image: url('/img/discover.jpeg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: ;
+  padding-top: 50px;
+  padding-bottom: 600px;
+  background-color: transparent;
+  background-image: url("/img/discover.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #secTwo .jumbotron {
-    background-color: transparent;
-    background-image: url('/img/adventure.jpeg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-bottom: 600px;
+  background-color: transparent;
+  background-image: url("/img/adventure.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 600px;
 }
 
 #secThree .jumbotron {
-    padding-top: 200px;
-    padding-bottom: 200px;
-    background-color: transparent;
-    background-image: url('/img/social-media.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  background-color: transparent;
+  background-image: url("/img/social-media.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #secFour .jumbotron {
-    padding-top: 200px;
-    padding-bottom: 200px;
-    background-color: transparent;
-    background-image: url('/img/jack-patrick-dorsey.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  background-color: transparent;
+  background-image: url("/img/jack-patrick-dorsey.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
 }
 
 .message {
-    max-width: 300px;
+  max-width: 300px;
 }
 
-.block{
+.block {
   width: 100%;
   height: 35vh;
   position: relative;
@@ -74,6 +72,7 @@
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%,0);
-  pointer-events: none
+  transform: translate(-50%, 0);
+  pointer-events: none;
 }
+

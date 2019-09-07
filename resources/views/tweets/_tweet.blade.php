@@ -8,7 +8,7 @@
                         <follow-button
                             class="d-inline" user-id="{{ $tweet->user->id }}" follows="{{ in_array($tweet->user->id, $following) ? true : false }}"
                             >
-                        <follow-button>
+                        </follow-button>
                     @endif
                 </h4>
                 {{ $tweet->body }}

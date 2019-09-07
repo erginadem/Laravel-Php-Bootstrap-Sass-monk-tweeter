@@ -16,9 +16,8 @@
             <hr />
             @if(auth()->check() && auth()->user()->id !== $profile->user->id)
                 <follow-button  user-id="{{ $profile->user->id }}"
-                                follows="{{ $profile->user->following and
-                                in_array($profile->user->id, $profile->user->following->pluck('id')->toArray()) ? true : false }}"> 
-                <follow-button>
+                                follows="{{ in_array($profile->user->id, $following) ? true : false }}">
+                </follow-button>
             @endif
         </div>
     </div>

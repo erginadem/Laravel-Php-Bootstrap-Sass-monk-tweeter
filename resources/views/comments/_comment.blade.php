@@ -9,7 +9,7 @@
             {{ $comment->body }}
             <div class="col mt-3 mb-3">
                 @if ($comment->gif)
-                <img class="img-fluid" src="{{ $comment->gif }}" />
+                <img class="img-fluid border border-secondary" src="{{ $comment->gif }}" />
                 @endif
             </div>
             <div class="mt-1 float-right">
