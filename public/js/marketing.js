@@ -1,6 +1,8 @@
+// #secTwo parallax
 var scene = document.querySelector('#secTwo .jumbotron');
 var parallaxInstance = new Parallax(scene);
 
+// parallax scrolling
 $('.img-parallax').each(function(){
     var img = $(this);
     var imgParent = $(this).parent();
@@ -37,3 +39,11 @@ $('.img-parallax').each(function(){
         }
     });
 });
+
+// ScrollMagic
+var controller = new ScrollMagic.Controller();
+var scene = new ScrollMagic.Scene({
+    triggerElement: '.red-cube'
+})
+.setClassToggle('.red-cube', 'show')
+.addTo(controller);
