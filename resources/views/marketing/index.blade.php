@@ -3,14 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Tweeter is the most popular social media platform"/>
+    <meta name="keywords" content="tweeter, marketing, social media, communication, news, fun"/>
 
-    <meta name="tweetter:card" content="summary_large_image">
-    <meta name="tweetter:site" content="@KullaniciAdiniz">
-    <meta name="twitter:creator" content="KullaniciAdiniz">
-    <meta name="twitter:title" content="Sayfa Başlığı">
-    <meta name="twitter:description" content="Sayfa Açıklaması">
-    <meta name="twitter:image:src" content="http://siteadresi.com/img/sayfa-resmi.jpg">
-
+    <link rel="shortcut icon" href="{{ asset('img/icon-logo.png') }}" type="image/x-icon" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/marketing.css">
@@ -69,7 +65,7 @@
             <div class="container">
                 <h1 class="display-4">Start with the ones who shape what's happening</h1>
                 <br />
-                <a class="btn btn-primary btn-lg" href="#secFive" role="button">Learn more</a>
+                <a class="btn btn-primary btn-lg" href="#scroll-parallax" role="button">Learn more</a>
             </div>
         </div>
     </section>
