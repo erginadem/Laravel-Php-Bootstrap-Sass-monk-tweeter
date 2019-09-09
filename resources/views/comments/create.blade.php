@@ -8,9 +8,9 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="text text-info"> <i class="fa fa-user"></i> {{ $tweet->user->name}} </h3>
-                        <p> {{ $tweet->body}} </p>
-
+                        <h3 class="d-inline text text-info"> <i class="fa fa-user"></i> {{ $tweet->user->name}} </h3>
+                        <p class="d-inline text text-secondary small"> {{ $tweet->created_at->diffForhumans() }} </p>
+                        <p class="mt-2 ml-3"> {{ $tweet->body}} </p>
                         @foreach($tweet->comments as $comment)
                             @include('comments._comment')
                         @endforeach

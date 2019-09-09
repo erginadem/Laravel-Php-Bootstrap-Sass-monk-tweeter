@@ -17,21 +17,23 @@ class FollowsController extends Controller
         return auth()->user()->following()->toggle($user->profile);
     }
 
-    public function following()
+    public function following($id = 0)
     {
-        $following = auth()->user()->following()->pluck('profile_user.profile_id')->toArray();
+        $user = \App\User::where('id', $id ? $id : auth()->user()->id)->get();
+        $following = $user[0]->following()->pluck('profile_user.profile_id')->toArray();
 
-        $profiles = \App\Profile::whereIn('id', $following)->paginate(10);
+        $profiles = \App\Profile::whereIn('id', $following)->paginate(5);
 
         return view('user/following', compact('profiles', 'following'));
     }
 
-    public function followers()
+    public function followers($id = 0)
     {
-        $followers = auth()->user()->followers()->pluck('profile_user.profile_id')->toArray();
+        $profile = \App\Profile::where('id', $id ? $id : auth()->user()->id)->get();
+        $followers = $profile[0]->followers()->pluck('profile_user.user_id')->toArray();
+        $profiles = \App\Profile::whereIn('id', $followers)->paginate(5);
+        $following = auth()->user()->following()->pluck('profile_user.profile_id')->toArray();
 
-        $profiles = \App\Profile::whereIn('id', $followers)->paginate(10);
-
-        return view('user/followers', compact('profiles', 'followers'));
+        return view('user/followers', compact('profiles', 'followers', 'following'));
     }
 }

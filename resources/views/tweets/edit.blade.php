@@ -10,7 +10,7 @@
                 <form class="" action="/tweets/{{ $tweet->id }}" method="POST">
                     @csrf
                     {{ method_field('PUT') }}
-                    <textarea name="body" class="form-control text text-secondary">{{ $tweet->body }}</textarea>
+                    <textarea name="body" class="form-control">{{ $tweet->body }}</textarea>
                     <br />
                     <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"></i> save</button>
                 </form>

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mt-5">
-        <h1 class='text text-primary'>Who to follow</h1>
+        <h1 class='text text-primary'>Tweeter Users</h1>
         <hr />
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -14,5 +14,6 @@
             </div>
         </div>
     </div>
+    <div class="row justify-content-center">{{ $profiles->links() }}    </div>
     @include('layouts/footer')
 @endsection

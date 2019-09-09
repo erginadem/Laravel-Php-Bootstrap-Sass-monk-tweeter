@@ -16,13 +16,13 @@
                         <p> <i class="fa fa-book"></i> {{ $user->profile->bio }} </p>
                         <hr />
                         <p>
-                            <a href="{{ route('tweetlist2') }}">{{ $user->tweets->count() }} <strong class="text text-secondary">Tweets</strong></a>  |
-                            {{ $user->profile->followers->count() }} <strong class="text text-secondary">Followers</strong>  |
-                            {{ $user->following->count() }}  <strong class="text text-secondary">Following</strong>
+                            <a href="{{ route('usertweetlist', ['user'=> $user->id ]) }}">{{ $user->tweets->count() }} <strong class="text-dark font-weight-bold small">Tweets</strong></a>  |
+                            <a href="{{ route('userfollowers', ['user'=> $user->id ]) }}">{{ $user->profile->followers->count() }} <strong class="text-dark font-weight-bold small">Followers</strong></a>  |
+                            <a href="{{ route('userfollowing', ['user'=> $user->id ]) }}">{{ $user->following->count() }}  <strong class="text-dark font-weight-bold small">Following</strong> </a>
                         </p>
                         <hr />
                         @if(auth()->check() && auth()->user()->id !== $user->id)
-                            <follow-button  user-id="{{ $user->id }}" follows="{{ $user->follows }}"> <follow-button>
+                            <follow-button  user-id="{{ $user->id }}" follows="{{ in_array($user->id, $following) ? true : false }}"> </follow-button>
                         @endif
 
                         @if(Auth::id() == $user->id)

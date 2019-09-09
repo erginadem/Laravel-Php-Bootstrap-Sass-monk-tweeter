@@ -2,17 +2,12 @@
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
-                <h4>
-                    <a href="/profiles/{{ $tweet->user->id }}"> <i class="fa fa-user"></i>  {{ $tweet->user->name }} </a>
-                    @if(auth()->check() && auth()->user()->id !== $tweet->user->id)|
-                        <follow-button
-                            class="d-inline" user-id="{{ $tweet->user->id }}" follows="{{ in_array($tweet->user->id, $following) ? true : false }}"
-                            >
-                        </follow-button>
-                    @endif
-                </h4>
-                {{ $tweet->body }}
-                <div class="mb-2 mt-2">
+                <a href="/profiles/{{ $tweet->user->id }}">
+                    <h4 class="d-inline"><i class="fa fa-user"></i> {{ $tweet->user->name }} </h4>
+                </a>
+                <p class="d-inline text text-secondary small"> {{ $tweet->created_at->diffForhumans() }} </p>
+                <p class="mt-2 ml-2"> {{ $tweet->body }} </p>
+                <div class="mb-3">
                     <a href="/comments/create/{{ $tweet->id }}" class="badge badge-warning"><i class="fa fa-comment"> comment </i> ({{ $tweet->comments()->count() }})</a>
                     <a href="/tweets/{{ $tweet->id }}/like" class="badge badge-success"><i class="fa fa-heart"> like </i> ({{ $tweet->likes()->count() }})</a>
                     @if(Auth::id() == $tweet->user_id)
@@ -32,3 +27,14 @@
         <br>
     </div>
 </div>
+
+
+
+
+
+{{-- @if(auth()->check() && auth()->user()->id !== $tweet->user->id)
+    <follow-button
+        class="d-inline" user-id="{{ $tweet->user->id }}" follows="{{ isset($following) && in_array($tweet->user->id, $following) ? true : false }}"
+        >
+    </follow-button>
+@endif --}}

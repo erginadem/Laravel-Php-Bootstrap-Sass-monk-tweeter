@@ -14,7 +14,7 @@
                         <div class="form-group">
                             <form class="table" action="/comments" method="POST">
                                 @csrf
-                                <textarea name="body" class="form-control text text-secondary">{{ $comment->body }}</textarea>
+                                <textarea name="body" class="form-control">{{ $comment->body }}</textarea>
                                 <div class="mt-2 mb-2">
                                     <img src="{{ $comment->gif}}" alt="gif" class="border border-secondary">
                                 </div>

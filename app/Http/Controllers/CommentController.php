@@ -86,7 +86,6 @@ class CommentController extends Controller
     public function update(Request $request, $id)
     {
         $comment = \App\Comment::find($id);
-
         $comment->body = $request->body;
         $comment->gif = $request->gif;
 

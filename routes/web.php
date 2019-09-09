@@ -27,8 +27,6 @@ Route::get('/logout', function(){
     return redirect('/login');
 });
 
-
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/tweets/{tweet}/like', 'TweetController@like');
@@ -44,11 +42,14 @@ Route::resource('/profiles', 'ProfilesController');
 Route::get('/profiles/{user}', 'ProfilesController@index')->name('profile');
 
 Route::get('/user/following', 'FollowsController@following')->name('following');
+Route::get('/user/following/{user}', 'FollowsController@following')->name('userfollowing');
+
 Route::get('/user/followers', 'FollowsController@followers')->name('followers');
+Route::get('/user/followers/{user}', 'FollowsController@followers')->name('userfollowers');
+
 Route::get('/user/tweetlist', 'TweetController@tweetlist')->name('tweetlist');
-Route::get('/user/tweetlist2', 'TweetController@tweetlist2')->name('tweetlist2');
-
-
-Route::get('/latest', 'TweetController@list');
+Route::get('/user/tweetlist/{user}', 'TweetController@tweetlist')->name('usertweetlist');
 
 Route::get('/marketing', 'TweetController@marketing')->name('marketing');
+
+// Route::get('/latest', 'TweetController@list');

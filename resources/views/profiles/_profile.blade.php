@@ -9,14 +9,14 @@
             <p> <i class="fa fa-book"></i> {{ $profile->bio }} </p>
             <hr />
             <p>
-                {{ $profile->user->tweets->count() }} <strong class="text text-secondary">Tweets</strong>  |
-                {{ $profile->followers->count() }} <strong class="text text-secondary">Followers</strong>  |
-                {{ $profile->user->following->count() }}  <strong class="text text-secondary">Following</strong>
+                <a href="{{ route('usertweetlist', ['user'=> $profile->id ]) }}"> {{ $profile->user->tweets->count() }} <strong class="text-dark font-weight-bold small">Tweets </strong></a> |
+                <a href="{{ route('userfollowers', ['user'=> $profile->id ]) }}"> {{ $profile->followers->count() }} <strong class="text-dark font-weight-bold small">Followers </strong></a> |
+                <a href="{{ route('userfollowing', ['user'=> $profile->id ]) }}"> {{ $profile->user->following->count() }}  <strong class="text-dark font-weight-bold small">Following</strong></a>
             </p>
             <hr />
             @if(auth()->check() && auth()->user()->id !== $profile->user->id)
                 <follow-button  user-id="{{ $profile->user->id }}"
-                                follows="{{ in_array($profile->user->id, $following) ? true : false }}">
+                                follows="{{ isset($following) && in_array($profile->user->id, $following) ? true : false }}">
                 </follow-button>
             @endif
         </div>

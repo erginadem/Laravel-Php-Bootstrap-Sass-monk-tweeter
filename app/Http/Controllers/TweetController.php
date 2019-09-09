@@ -18,7 +18,7 @@ class TweetController extends Controller
     {
         // $tweets = \App\Tweet::orderBy('created_at', 'desc')->get();
 
-        $tweets = \App\Tweet::orderBy('created_at', 'desc')->paginate(30);
+        $tweets = \App\Tweet::latest()->paginate(20);
 
         $following = auth()->user()->following()->pluck('profile_user.profile_id')->toArray();
 
@@ -79,6 +79,7 @@ class TweetController extends Controller
     {
         // Load single tweet from DB by it's ID
         $tweet = \App\Tweet::find($id);
+
         $following = $tweet->user->following->pluck('id')->toArray();
 
         return view('tweets.show', compact('tweet', 'following'));
@@ -154,24 +155,15 @@ class TweetController extends Controller
         $like->tweet_id = $id;
 
         if($like->save()){
-            return back();
+            return view('tweets.{tweet}');
         }
     }
 
-    public function tweetlist()
+    public function tweetlist($id = 0)
     {
-        $tweets = \App\Tweet::where('user_id', Auth::id())->paginate(10);
-
-        // dd($tweet);
+        $tweets = \App\Tweet::where('user_id', $id ? $id : Auth::id())->paginate(10);
 
         return view('user.tweetlist', compact('tweets'));
-    }
-
-    public function tweetlist2($id)
-    {
-        $user = \App\User::find($id);
-        $tweets = $user->tweets()->get();
-        return view('user.tweetlist2', compact('tweets'));
     }
 
     public function marketing()
