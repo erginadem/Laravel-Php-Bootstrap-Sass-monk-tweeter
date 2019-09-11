@@ -29,7 +29,8 @@ Route::get('/logout', function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/tweets/{tweet}/like', 'TweetController@like');
+Route::post('/tweets/{tweet}/like', 'TweetController@like');
+Route::post('/tweets/{tweet}/unlike', 'TweetController@unlike');
 
 Route::resource('/comments', 'CommentController');
 Route::post('/comments/{tweet}', 'CommentController@store');

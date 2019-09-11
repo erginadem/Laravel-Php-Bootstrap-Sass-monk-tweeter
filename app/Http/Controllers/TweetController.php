@@ -134,31 +134,6 @@ class TweetController extends Controller
             return back();
     }
 
-    public function like($id)
-    {
-        // check for existing Like
-        $existing = \App\Like::where('user_id', Auth::id())
-                                ->where('tweet_id', $id)
-                                ->count();
-
-        if($existing) {
-            $delete = \App\Like::where('user_id', Auth::id())
-                                    ->where('tweet_id', $id)
-                                    ->delete();
-            if($delete)
-                return back();
-        }
-
-        // otherwise - add a new like
-        $like = new \App\Like;
-        $like->user_id = Auth::id();
-        $like->tweet_id = $id;
-
-        if($like->save()){
-            return view('tweets.{tweet}');
-        }
-    }
-
     public function tweetlist($id = 0)
     {
         $tweets = \App\Tweet::where('user_id', $id ? $id : Auth::id())->paginate(10);
@@ -170,4 +145,60 @@ class TweetController extends Controller
     {
         return view('marketing.index');
     }
+
+    public function like($id)
+    {
+        $like = new \App\like;
+        $like->user_id = Auth::id();
+        $like->tweet_id = $id;
+
+        if ($like->save()) {
+            return json_encode([
+                'status' => 'success'
+            ]);
+
+        }
+            return json_encode([
+                'status' => 'failed'
+            ]);
+    }
+
+    public function unLike($id)
+    {
+        $like = \App\Like::where('tweet_id' , $id)
+                                ->where('user_id', Auth::id())
+                                ->first();
+
+        if ($like->delete()) {
+            return json_encode([
+                'status' => 'success'
+            ]);
+        }
+    }
 }
+
+
+// public function like($id)
+// {
+//     // check for existing Like
+//     $existing = \App\Like::where('user_id', Auth::id())
+//                             ->where('tweet_id', $id)
+//                             ->count();
+//
+//     if($existing) {
+//         $delete = \App\Like::where('user_id', Auth::id())
+//                                 ->where('tweet_id', $id)
+//                                 ->delete();
+//         if($delete)
+//             return back();
+//     }
+//
+//     // otherwise - add a new like
+//     $like = new \App\Like;
+//     $like->user_id = Auth::id();
+//     $like->tweet_id = $id;
+//
+//     if($like->save()){
+//         return view('tweets.{tweet}');
+//     }
+// }
