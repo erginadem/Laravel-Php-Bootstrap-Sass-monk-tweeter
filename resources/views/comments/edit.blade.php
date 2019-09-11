@@ -15,11 +15,9 @@
                             <form class="table" action="/comments" method="POST">
                                 @csrf
                                 <textarea name="body" class="form-control">{{ $comment->body }}</textarea>
-                                <div class="mt-2 mb-2">
-                                    <img src="{{ $comment->gif}}" alt="gif" class="border border-secondary">
-                                </div>
+
                                 <button type="submit" class="btn btn-primary btn-sm mt-2 mb-2">Save</button>
-                                <giphy-search :value="this.gif"></giphy-search>
+                                <giphy-search value="{{ $comment->gif }}"></giphy-search>
                             </form>
                         </div>
                     </form>

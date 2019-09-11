@@ -1917,6 +1917,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['value'],
   data: function data() {
     return {
       appKey: 'Nm40IfiNHYRUHKH6xPkuljyfoFLnUfC9',
@@ -1924,6 +1925,12 @@ __webpack_require__.r(__webpack_exports__);
       results: [],
       gif: ''
     };
+  },
+  mounted: function mounted() {
+    if (this.value) {
+      alert(this.value);
+      this.gif = this.value;
+    }
   },
   methods: {
     doSearch: function doSearch() {

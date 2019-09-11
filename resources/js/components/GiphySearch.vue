@@ -14,11 +14,11 @@
                 </button>
             </form>
             <div class="col">
-                    <img
-                        :src="result.images.fixed_height.url"
-                        @click="choosenGIF(index)" v-for="(result , index) in results"
-                        class="mb-1 mr-2"
-                     />
+                <img
+                    :src="result.images.fixed_height.url"
+                    @click="choosenGIF(index)" v-for="(result , index) in results"
+                    class="mb-1 mr-2"
+                 />
             </div>
         </div>
     </div>
@@ -28,6 +28,7 @@
 import axios from 'axios'
 
 export default {
+    props: ['value'],
 
     data() {
         return {
@@ -36,6 +37,14 @@ export default {
             results: [ ],
             gif:'' ,
 
+        }
+    },
+
+    mounted() {
+        if(this.value) {
+            alert(this.value);
+
+            this.gif = this.value;
         }
     },
 
