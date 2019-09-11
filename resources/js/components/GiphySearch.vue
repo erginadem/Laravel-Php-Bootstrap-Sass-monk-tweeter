@@ -42,8 +42,6 @@ export default {
 
     mounted() {
         if(this.value) {
-            alert(this.value);
-
             this.gif = this.value;
         }
     },

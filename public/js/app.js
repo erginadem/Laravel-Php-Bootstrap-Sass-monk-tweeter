@@ -1928,7 +1928,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     if (this.value) {
-      alert(this.value);
       this.gif = this.value;
     }
   },
