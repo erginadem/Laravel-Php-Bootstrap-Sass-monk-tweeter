@@ -20,9 +20,7 @@ class ProfilesController extends Controller
 
     public function index(User $user)
     {
-
         $profiles = \App\Profile::orderby('created_at', 'desc')->paginate(5);
-
         $following = auth()->user()->following()->pluck('profile_user.profile_id')->toArray();
 
         return view('profiles/index', compact('profiles', 'user', 'following'));
@@ -54,7 +52,6 @@ class ProfilesController extends Controller
         ]);
 
         $profile = new \App\Profile;
-
         $profile->birthday = $request->birthday;
         $profile->location = $request->location;
         $profile->bio = $request->bio;
@@ -78,9 +75,7 @@ class ProfilesController extends Controller
         // dd($user);
 
         $user = User::findOrFail($user);
-
         $profile = \App\Profile::find($user);
-
         $following = auth()->user()->following()->pluck('profile_user.profile_id')->toArray();
 
         return view('profiles/show', compact('profile', 'user', 'following'));
@@ -96,7 +91,6 @@ class ProfilesController extends Controller
     {
         $profile = \App\Profile::where('user_id', $id)->first();
 
-
         return view('profiles/edit', compact('profile'));
     }
 
@@ -110,11 +104,9 @@ class ProfilesController extends Controller
     public function update(Request $request, $id)
     {
         $profile = \App\Profile::find($id);
-
         $profile->birthday = $request->birthday;
         $profile->location = $request->location;
         $profile->bio = $request->bio;
-
 
         if($profile->save()) {
             return redirect('/profiles/'.$id);

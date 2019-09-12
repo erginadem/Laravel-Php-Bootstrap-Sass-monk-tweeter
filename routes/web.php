@@ -31,25 +31,22 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/tweets/{tweet}/like', 'TweetController@like');
 Route::post('/tweets/{tweet}/unlike', 'TweetController@unlike');
+Route::get('/user/tweetlist', 'TweetController@tweetlist')->name('tweetlist');
+Route::get('/user/tweetlist/{user}', 'TweetController@tweetlist')->name('usertweetlist');
 
 Route::resource('/comments', 'CommentController');
 Route::post('/comments/{tweet}', 'CommentController@store');
 Route::get('/comments/create/{tweet}', 'CommentController@create');
-
-Route::post('/follow/{user}', 'FollowsController@store');
-Route::get('/follow/{user}', 'FollowsController@store');
 
 Route::resource('/profiles', 'ProfilesController');
 Route::get('/profiles/{user}', 'ProfilesController@index')->name('profile');
 
 Route::get('/user/following', 'FollowsController@following')->name('following');
 Route::get('/user/following/{user}', 'FollowsController@following')->name('userfollowing');
-
+Route::post('/follow/{user}', 'FollowsController@store');
+Route::get('/follow/{user}', 'FollowsController@store');
 Route::get('/user/followers', 'FollowsController@followers')->name('followers');
 Route::get('/user/followers/{user}', 'FollowsController@followers')->name('userfollowers');
-
-Route::get('/user/tweetlist', 'TweetController@tweetlist')->name('tweetlist');
-Route::get('/user/tweetlist/{user}', 'TweetController@tweetlist')->name('usertweetlist');
 
 Route::get('/marketing', 'TweetController@marketing')->name('marketing');
 

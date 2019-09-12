@@ -43,7 +43,7 @@
   font-size: 16px;
 }
 
-.block h2 {
+.block h3 {
   position: relative;
   display: block;
   text-align: center;
@@ -88,7 +88,11 @@
 
 @media only screen and (max-width: 700px) {
   .block {
-    height: 300px;
+    height: 250px;
+  }
+
+  .block h3 {
+    font-size: 17px;
   }
 
   .jumbotron {

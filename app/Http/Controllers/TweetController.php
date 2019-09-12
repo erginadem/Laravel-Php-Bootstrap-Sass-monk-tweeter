@@ -19,7 +19,6 @@ class TweetController extends Controller
         // $tweets = \App\Tweet::orderBy('created_at', 'desc')->get();
 
         $tweets = \App\Tweet::latest()->paginate(20);
-
         $following = auth()->user()->following()->pluck('profile_user.profile_id')->toArray();
 
         //dd($tweets[0]->user->follows);
@@ -33,13 +32,12 @@ class TweetController extends Controller
         return $tweets;
     }
 
-
-
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         return view('tweets.create');
@@ -51,6 +49,7 @@ class TweetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -58,7 +57,6 @@ class TweetController extends Controller
         ]);
 
         $tweet = new \App\Tweet;
-
         $tweet->body = $request->body;
         $tweet->user_id = \Auth::user()->id;
 
@@ -75,11 +73,11 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
         // Load single tweet from DB by it's ID
         $tweet = \App\Tweet::find($id);
-
         $following = $tweet->user->following->pluck('id')->toArray();
 
         return view('tweets.show', compact('tweet', 'following'));
@@ -91,6 +89,7 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
         $tweet = \App\Tweet::find($id);
@@ -105,12 +104,11 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         $tweet = \App\Tweet::find($id);
-
         $tweet->body = $request->body;
-
 
         if($tweet->save()) {
             return redirect('/tweets');
@@ -124,6 +122,7 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
         $tweet = \App\Tweet::find($id)->delete();
@@ -176,29 +175,3 @@ class TweetController extends Controller
         }
     }
 }
-
-
-// public function like($id)
-// {
-//     // check for existing Like
-//     $existing = \App\Like::where('user_id', Auth::id())
-//                             ->where('tweet_id', $id)
-//                             ->count();
-//
-//     if($existing) {
-//         $delete = \App\Like::where('user_id', Auth::id())
-//                                 ->where('tweet_id', $id)
-//                                 ->delete();
-//         if($delete)
-//             return back();
-//     }
-//
-//     // otherwise - add a new like
-//     $like = new \App\Like;
-//     $like->user_id = Auth::id();
-//     $like->tweet_id = $id;
-//
-//     if($like->save()){
-//         return view('tweets.{tweet}');
-//     }
-// }

@@ -9,9 +9,7 @@
                 <p class="mt-2 ml-2"> {{ $tweet->body }} </p>
                 <div class="mb-3">
                     <a href="/comments/create/{{ $tweet->id }}" class="badge badge-warning"><i class="fa fa-comment"> comment </i> ({{ $tweet->comments()->count() }})</a>
-
                     <like-button class="d-inline" tweet-id="{{ $tweet->id}}" is-liked="{{ $tweet->likedByUser}}" :count="{{ $tweet->likes()->count()}}"></like-button>
-
                     @if(auth()->id() == $tweet->user_id)
                         <a class="badge badge-dark" href="/tweets/{{ $tweet->id }}/edit"><i class="fa fa-edit"> edit </i> </a>
                         <form class="d-inline" action="/tweets/ {{ $tweet->id }}" method="POST">
@@ -29,11 +27,6 @@
         <br>
     </div>
 </div>
-
-
-
-
-{{-- <a href="/tweets/{{ $tweet->id }}/like" class="badge badge-success"><i class="fa fa-heart"> like </i> ({{ $tweet->likes()->count() }})</a> --}}
 
 
 {{-- @if(auth()->check() && auth()->user()->id !== $tweet->user->id)

@@ -39,7 +39,6 @@ class CommentController extends Controller
         ]);
 
         $comment = new \App\Comment;
-
         $comment->body = $request->body;
         $comment->gif = $request->gif;
         $comment->tweet_id = $tweet_id;

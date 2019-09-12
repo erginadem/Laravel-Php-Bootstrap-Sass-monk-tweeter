@@ -21,7 +21,6 @@ class FollowsController extends Controller
     {
         $user = \App\User::where('id', $id ? $id : auth()->user()->id)->get();
         $following = $user[0]->following()->pluck('profile_user.profile_id')->toArray();
-
         $profiles = \App\Profile::whereIn('id', $following)->paginate(5);
 
         return view('user/following', compact('profiles', 'following'));

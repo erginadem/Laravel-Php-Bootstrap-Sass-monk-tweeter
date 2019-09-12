@@ -69,15 +69,3 @@
     </div>
     @include('layouts/footer')
 @endsection
-
-
-
-
-{{-- <textarea name="birthday" class="form-control text text-secondary">{{ $profile->birthday }}</textarea> --}}
-{{-- <br />
-<h6 class="text-danger">Location</h6>
-<textarea name="location" class="form-control text text-secondary">{{ $profile->location }}</textarea>
-<br />
-<h6 class="text-danger">Bio</h6>
-<textarea name="bio" class="form-control text text-secondary">{{ $profile->bio }}</textarea>
-<br /> --}}
