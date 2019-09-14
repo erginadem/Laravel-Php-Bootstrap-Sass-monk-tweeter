@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Comment;
+use App\Tweet;
+use App\User;
 use Auth;
+use Mail;
+use App\Mail\NewComment;
 
 class CommentController extends Controller
 {
@@ -45,8 +50,7 @@ class CommentController extends Controller
         $comment->user_id = Auth::id();
 
         if ($comment->save()) {
-            return redirect('tweets');
-        } else {
+            Mail::to($comment->user)->send(new NewComment($comment));
             return back();
         }
     }

@@ -1,14 +1,11 @@
 @extends('layouts.app')
+<div class="mt-5"></div>
 
 @section('content')
     @include('tweets/_tweet')
 
     <form action="/tweets/ {{ $tweet->id }}" method="POST">
     </form>
-
-    @foreach($tweet->comments as $comment)
-        @include('comments._comment')
-    @endforeach
 
     @include('layouts/footer')
 @endsection

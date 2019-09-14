@@ -27,11 +27,3 @@
         <br>
     </div>
 </div>
-
-
-{{-- @if(auth()->check() && auth()->user()->id !== $tweet->user->id)
-    <follow-button
-        class="d-inline" user-id="{{ $tweet->user->id }}" follows="{{ isset($following) && in_array($tweet->user->id, $following) ? true : false }}"
-        >
-    </follow-button>
-@endif --}}
