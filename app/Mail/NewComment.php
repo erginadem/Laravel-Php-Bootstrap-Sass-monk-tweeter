@@ -32,6 +32,6 @@ class NewComment extends Mailable
     public function build()
     {
         return $this->from('noreply@ergintweeter.com')
-                    ->view('mail/new-comment');
+                     ->view('mail/new-comment');
     }
 }
