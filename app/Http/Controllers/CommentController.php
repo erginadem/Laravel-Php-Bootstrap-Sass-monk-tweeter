@@ -9,6 +9,7 @@ use App\User;
 use Auth;
 use Mail;
 use App\Mail\NewComment;
+use App\Jobs\SendNewCommentEmail;
 
 class CommentController extends Controller
 {
@@ -50,7 +51,8 @@ class CommentController extends Controller
         $comment->user_id = Auth::id();
 
         if ($comment->save()) {
-            Mail::to($comment->user)->send(new NewComment($comment));
+            sendNewCommentEmail::dispatch($comment);
+
             return back();
         }
     }
