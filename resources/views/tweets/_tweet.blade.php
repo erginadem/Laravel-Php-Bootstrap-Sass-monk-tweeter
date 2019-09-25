@@ -6,6 +6,13 @@
                     <h4 class="d-inline"><i class="fa fa-user"></i> {{ $tweet->user->name }} </h4>
                 </a>
                 <p class="d-inline text text-secondary small"> {{ $tweet->created_at->diffForhumans() }} </p>
+
+                <div class="col-md-8">
+                    <a href="/storage/tweet_image/{{ $tweet->image }}">
+                        <img src="{{ Storage::disk('s3')->url($tweet->image)}}" width="300px" alt="photo" />
+                    </a>
+                </div>
+
                 <p class="mt-2 ml-2"> {{ $tweet->body }} </p>
                 <div class="mb-3">
                     <a href="/comments/create/{{ $tweet->id }}" class="badge badge-warning"><i class="fa fa-comment"> comment </i> ({{ $tweet->comments()->count() }})</a>

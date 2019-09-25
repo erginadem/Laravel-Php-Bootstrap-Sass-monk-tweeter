@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Tweet;
 use App\Like;
+use Storage;
 
 class TweetController extends Controller
 {
@@ -52,19 +53,24 @@ class TweetController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'body' => 'required | min:5 | max:1000',
+        request()->validate([
+            'body'  => 'required|min:5|max:1000',
+            'image' => 'required|nullable|mimes:jpeg,jpg,png,gif|max:2048'
         ]);
 
+        // create tweet
         $tweet = new \App\Tweet;
         $tweet->body = $request->body;
         $tweet->user_id = \Auth::user()->id;
+        $tweet->save();
 
-        if($tweet->save()) {
-            return redirect('/tweets');
-        } else {
-            return back();
-        }
+
+        // upload to s3
+        $tweet->image = Storage::disk('s3')->put('uploads/tweets/' . $tweet->id, request()->image, 'public');
+
+        $tweet->save();
+
+        return redirect($tweet->path());
     }
 
     /**

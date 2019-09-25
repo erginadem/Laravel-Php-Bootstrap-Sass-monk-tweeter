@@ -7,6 +7,9 @@ use Auth;
 
 class Tweet extends Model
 {
+
+    protected $guarded = [];
+
     public function user()
     {
         return $this->belongsTo('App\User');
@@ -32,5 +35,15 @@ class Tweet extends Model
         if ($like) return true;
         return false;
 
+    }
+
+    public function attachment()
+    {
+        return $this->hasOne('App\Attachment');
+    }
+
+    public function path()
+    {
+        return '/tweets/' . $this->id;
     }
 }

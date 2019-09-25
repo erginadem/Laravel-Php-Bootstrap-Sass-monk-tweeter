@@ -8,8 +8,5 @@
         </div>
     </div>
 
-    <form action="/tweets/ {{ $tweet->id }}" method="POST">
-    </form>
-
     @include('layouts/footer')
 @endsection
