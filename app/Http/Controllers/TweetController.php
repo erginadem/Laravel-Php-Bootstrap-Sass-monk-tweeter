@@ -66,13 +66,12 @@ class TweetController extends Controller
         $tweet->save();
 
         // upload to s3
-        $tweet->image = Storage::disk('s3')->put('uploads/tweets/' . $tweet->id, request()->image, 'public');
-
-        if ($tweet->save()) {
-            return redirect($tweet->path());
-        } else {
-            // code...
+        if (request()->image) {
+            $tweet->image = Storage::disk('s3')->put('uploads/tweets/' . $tweet->id, request()->image, 'public');
         }
+            if ($tweet->save()) {
+                return redirect($tweet->path());
+            }
     }
 
     /**
