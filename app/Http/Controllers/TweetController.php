@@ -53,24 +53,26 @@ class TweetController extends Controller
 
     public function store(Request $request)
     {
-        request()->validate([
+        $data = $request->all();
+        $data = $request->validate([
             'body'  => 'required|min:5|max:1000',
-            'image' => 'required|nullable|mimes:jpeg,jpg,png,gif|max:2048'
+            'image' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048'
         ]);
 
         // create tweet
         $tweet = new \App\Tweet;
         $tweet->body = $request->body;
-        $tweet->user_id = \Auth::user()->id;
+        $tweet->user_id = Auth::id();
         $tweet->save();
-
 
         // upload to s3
         $tweet->image = Storage::disk('s3')->put('uploads/tweets/' . $tweet->id, request()->image, 'public');
 
-        $tweet->save();
-
-        return redirect($tweet->path());
+        if ($tweet->save()) {
+            return redirect($tweet->path());
+        } else {
+            // code...
+        }
     }
 
     /**

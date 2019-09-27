@@ -24,19 +24,19 @@
 </head>
 <body>
     <div id="app">
-        <nav class="fixed-top navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="fixed-top navbar navbar-expand-md navbar-light bg-primary shadow-sm">
             <div class="container">
 
-                <a class="navbar-brand" href="{{ url('/tweets') }}">
-                    <i class="fa fa-home text-primary"></i> Home
+                <a class="navbar-brand text-light" href="{{ url('/tweets') }}">
+                    <i class="fa fa-home text-light"></i> Home
                 </a>
 
-                <a class="navbar-brand" href="{{ url('/tweets/create') }}">
-                    <i class="fa fa-twitter text-primary"></i> New
+                <a class="navbar-brand text-light" href="{{ url('/tweets/create') }}">
+                    <i class="fa fa-twitter text-light"></i> New
                 </a>
 
-                <a class="navbar-brand" href="{{ url('/profiles') }}">
-                    <i class="fa fa-users text-primary"></i> Users
+                <a class="navbar-brand text-light" href="{{ url('/profiles') }}">
+                    <i class="fa fa-users text-light"></i> Users
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -54,16 +54,16 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}"> <i class="fa fa-sign-in"></i> {{ __('Login') }}</a>
+                                <a class="nav-link text-light" href="{{ route('login') }}"> <i class="fa fa-sign-in"></i> {{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}"> <i class="fa fa-file"></i> {{ __('Register') }}</a>
+                                    <a class="nav-link text-light" href="{{ route('register') }}"> <i class="fa fa-file"></i> {{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

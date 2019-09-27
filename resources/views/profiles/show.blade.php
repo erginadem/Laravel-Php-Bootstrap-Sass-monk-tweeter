@@ -2,8 +2,7 @@
 
 @section('content')
     <div class="container mt-5">
-        <h1 class="text-primary">User Profile</h1>
-        <hr />
+        <h1 class="text-light text-center mb-3">User Profile</h1>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">

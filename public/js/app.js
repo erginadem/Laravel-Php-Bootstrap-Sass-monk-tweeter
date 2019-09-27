@@ -37406,7 +37406,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "button",
-      { staticClass: "badge badge-dark mt-2 mb-2", attrs: { type: "submit" } },
+      {
+        staticClass: "btn btn-warning btn-sm mt-2 mb-2",
+        attrs: { type: "submit" }
+      },
       [_c("i", { staticClass: "fa fa-search" }, [_vm._v(" search")])]
     )
   }
@@ -49932,9 +49935,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/macbook/Desktop/itc/projects/Tweeter/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/macbook/Desktop/itc/projects/Tweeter/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /Users/macbook/Desktop/itc/projects/Tweeter/resources/sass/marketing.scss */"./resources/sass/marketing.scss");
+__webpack_require__(/*! /Users/macbook/Desktop/itc/projects/tweeter/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/macbook/Desktop/itc/projects/tweeter/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /Users/macbook/Desktop/itc/projects/tweeter/resources/sass/marketing.scss */"./resources/sass/marketing.scss");
 
 
 /***/ })

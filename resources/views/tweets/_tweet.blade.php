@@ -5,13 +5,13 @@
                 <a href="/profiles/{{ $tweet->user->id }}">
                     <h4 class="d-inline"><i class="fa fa-user"></i> {{ $tweet->user->name }} </h4>
                 </a>
-                <p class="d-inline text text-secondary small"> {{ $tweet->created_at->diffForhumans() }} </p>
+                <p class="d-inline text text-secondary small float-right"> {{ $tweet->created_at->diffForhumans() }} </p>
 
-                <div class="col-md-8">
-                    <a href="/storage/tweet_image/{{ $tweet->image }}">
+                @if ($tweet->image)
+                    <div class="mt-2">
                         <img src="{{ Storage::disk('s3')->url($tweet->image)}}" width="300px" alt="photo" />
-                    </a>
-                </div>
+                    </div>
+                @endif
 
                 <p class="mt-2 ml-2"> {{ $tweet->body }} </p>
                 <div class="mb-3">
@@ -34,3 +34,7 @@
         <br>
     </div>
 </div>
+
+
+{{-- <a href="/storage/tweet_image/{{ $tweet->image }}">
+</a> --}}

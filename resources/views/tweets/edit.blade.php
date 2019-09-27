@@ -3,8 +3,7 @@
 @section('content')
     <div class="container mt-5">
         @if(Auth::id() == $tweet->user->id)
-        <h1 class="text text-primary"> Edit Tweet </h1>
-        <hr />
+        <h1 class="text text-light text-center mb-3"> Edit Tweet </h1>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <form class="" action="/tweets/{{ $tweet->id }}" method="POST">

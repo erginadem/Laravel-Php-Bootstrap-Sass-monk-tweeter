@@ -3,8 +3,7 @@
 @section('content')
     <div class="container mt-5">
         @if(Auth::id() == $profile->user->id)
-        <h1 class="text-primary">Edit Profile</h1>
-        <hr />
+        <h1 class="text-light text-center mb-3">Edit Profile</h1>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">

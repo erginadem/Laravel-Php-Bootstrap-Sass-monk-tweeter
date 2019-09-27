@@ -2,8 +2,7 @@
 
 @section('content')
     <div class="container mt-5">
-        <h1 class='text text-primary'>Followers List</h1>
-        <hr />
+        <h1 class='text text-light text-center mb-3'>Followers List</h1>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="col">

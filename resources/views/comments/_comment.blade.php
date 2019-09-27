@@ -4,7 +4,7 @@
             <a href="/profiles/{{ $comment->user->id }}">
             <h5 class="text text-info d-inline"><i class="fa fa-user"></i> {{ $comment->user->name }} </h5>
             </a>
-            <p class="d-inline text text-secondary small"> {{ $comment->created_at->diffForhumans() }}</p>
+            <p class="d-inline text text-secondary small float-right"> {{ $comment->created_at->diffForhumans() }}</p>
             <p class="ml-2 mt-2">{{ $comment->body }}</p>
             <div class="col mt-3 mb-3">
                 @if ($comment->gif)
