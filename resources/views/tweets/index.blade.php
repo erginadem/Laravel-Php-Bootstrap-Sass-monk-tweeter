@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mt-5">
-        <div class="col align-text-center">
+        <div class="col">
             <h1 class='text text-light mb-3 text-center'>Home</h1>
         </div>
         <div class="col-">
