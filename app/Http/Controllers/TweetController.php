@@ -62,13 +62,14 @@ class TweetController extends Controller
         // create tweet
         $tweet = new \App\Tweet;
         $tweet->body = $request->body;
+        $tweet->image = $request->image;
         $tweet->user_id = Auth::id();
         $tweet->save();
 
         // upload to s3
-        if (request()->image) {
-            $tweet->image = Storage::disk('s3')->put('uploads/tweets/' . $tweet->id, request()->image, 'public');
-        }
+        // if (request()->image) {
+        //     $tweet->image = Storage::disk('s3')->put('uploads/tweets/' . $tweet->id, request()->image, 'public');
+        // }
             if ($tweet->save()) {
                 return redirect($tweet->path());
             }

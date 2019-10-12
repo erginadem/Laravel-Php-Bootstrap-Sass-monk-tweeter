@@ -7,11 +7,13 @@
                 </a>
                 <p class="d-inline text text-secondary small float-right"> {{ $tweet->created_at->diffForhumans() }} </p>
 
-                @if ($tweet->image)
+
+                {{-- tweet imgage --}}
+                {{-- @if ($tweet->image)
                     <div class="mt-2">
                         <img src="{{ Storage::disk('s3')->url($tweet->image)}}" width="300px" alt="photo" />
                     </div>
-                @endif
+                @endif --}}
 
                 <p class="mt-2 ml-2"> {{ $tweet->body }} </p>
                 <div class="mb-3">

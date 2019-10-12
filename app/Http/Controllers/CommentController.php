@@ -51,7 +51,7 @@ class CommentController extends Controller
         $comment->user_id = Auth::id();
 
         if ($comment->save()) {
-            sendNewCommentEmail::dispatch($comment);
+            // sendNewCommentEmail::dispatch($comment);
 
             return back();
         }
